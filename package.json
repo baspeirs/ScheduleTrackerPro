@@ -1,0 +1,40 @@
+{
+  "name": "scheduletrackerpro",
+  "version": "1.0.0",
+  "description": "Schedule Tracking application that allows the schedule writer to update schedule from Google Sheets and takes spreadsheet data and transforms it into a more readable format for employees",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baspeirs/ScheduleTrackerPro.git"
+  },
+  "author": "Bryce Speirs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baspeirs/ScheduleTrackerPro/issues"
+  },
+  "homepage": "https://github.com/baspeirs/ScheduleTrackerPro#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "googleapis": "^100.0.0",
+    "if-env": "^1.0.4",
+    "mongoose": "^6.2.10",
+    "passport": "^0.5.2",
+    "passport-local-mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
+  }
+}
