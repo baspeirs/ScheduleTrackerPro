@@ -1,0 +1,28 @@
+.scheduleTable {
+    background-color: rgb(184, 184, 184);
+    text-align: center;
+    margin:auto
+}
+
+.dayCard {
+    background-color: rgb(0, 77, 65);
+    text-align: center;
+    /* display: flex; */
+    display: grid;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(0, 255, 238);
+    color: black;
+  }
+tr:nth-child(odd) {
+    background-color: rgb(76, 76, 76);
+  }

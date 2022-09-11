@@ -23,14 +23,57 @@ app.get("/api/store_schedule", async (req, res) => {
     });
 
     // read rows from spreadsheet
-    const getMonday = await sheets.spreadsheets.values.get({
+    const getManagerShifts = await sheets.spreadsheets.values.get({
         // auth,
         spreadsheetId: process.env.SPREADSHEET_ID,
-        range: "Monday!B2:E50"
+        range: "Manager!C1:J1",
+        majorDimension: "ROWS"
+    });
+    const getManager = await sheets.spreadsheets.values.get({
+        // auth,
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: "Manager!C2:M50",
+        majorDimension: "ROWS"
+    });
+    const getDriverShifts = await sheets.spreadsheets.values.get({
+        // auth,
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: "Driver!C1:J1",
+        majorDimension: "ROWS"
+    });
+    const getDrivers = await sheets.spreadsheets.values.get({
+        // auth,
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: "Driver!C2:M50",
+        majorDimension: "ROWS"
+    });
+    const getInStoreShifts = await sheets.spreadsheets.values.get({
+        // auth,
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: "In Store!C1:J1",
+        majorDimension: "ROWS"
+    });
+    const getInStore= await sheets.spreadsheets.values.get({
+        // auth,
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: "In Store!C2:M50",
+        majorDimension: "ROWS"
+    });
+    const getDates= await sheets.spreadsheets.values.get({
+        // auth,
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: "In Store!A2:B8",
+        majorDimension: "ROWS"
     });
     
     returnData = {
-        monday: getMonday.data
+        managers: getManager.data,
+        managerShifts: getManagerShifts.data,
+        drivers: getDrivers.data,
+        driverShifts: getDriverShifts.data,
+        inStore: getInStore.data,
+        inStoreShifts: getInStoreShifts.data,
+        dates: getDates.data
     };
 
     res.json(returnData);
