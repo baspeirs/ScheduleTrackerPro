@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../Utilities/API";
 import DayCard from "../Components/DayCard";
 
-const StoreSchedule = () => {
+const StoreSchedule = (props) => {
     const [schedule, setSchedule] = useState({
         scheduleArr: []
     });
@@ -40,6 +40,7 @@ const StoreSchedule = () => {
             <h2>
                 Hello Store Schedule
             </h2>
+            <button onClick={props.logout}>Log Out</button>
             {schedule.scheduleArr.map(obj => (
                 <DayCard 
                     dayOBJ={obj}
