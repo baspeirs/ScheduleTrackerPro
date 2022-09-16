@@ -40,7 +40,7 @@ const AddEmployee = () => {
 
     return(
         <div>
-            <h2>Add your first employee</h2>
+            <h2>Add a new employee</h2>
             <form>
             <div className="form-group">
                 <label type="text" placeholder="Email">Email</label>

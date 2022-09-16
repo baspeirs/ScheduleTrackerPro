@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-ro
 import StoreSchedule from './Pages/StoreSchedule';
 import Home from "./Pages/Home";
 import "./Styles/App.css";
-import API from "./Utilities/API"
-// import AddEmployee from "./Pages/AddEmployee";
+import API from "./Utilities/API";
+import IndividualSchedule from "./Pages/IndividualSchedule";
+import AddEmployee from "./Pages/AddEmployee";
 
 function App() {
   let [authState, setAuthState] = useState({
@@ -59,6 +60,12 @@ function App() {
               <li>
                 <Link to="/storeSchedule">Store Schedule</Link>
               </li>
+              <li>
+                <Link to="/individualSchedule">Individual Schedule</Link>
+              </li>
+              <li>
+                <Link to="/addEmployee">Add Employee</Link>
+              </li>
             </ul>
           </nav>
 
@@ -66,7 +73,9 @@ function App() {
             renders the first one that matches the current URL. */}
           <Routes>
             <Route path="/" element={authState.authorized ? <Navigate to="/storeSchedule" /> : <Home isAuthorized={isAuthorized}/>} />
-            <Route path="/storeSchedule" element={authState.authorized ? <StoreSchedule logout={logout} /> : <Navigate to="/" />}/>
+            <Route path="/storeSchedule" element={authState.authorized ? <StoreSchedule user={authState.user} logout={logout} /> : <Navigate to="/" />}/>
+            <Route path="/individualSchedule" element={authState.authorized ? <IndividualSchedule user={authState.user} logout={logout} /> : <Navigate to="/" />}/>
+            <Route path="/addEmployee" element={authState.authorized ? <AddEmployee user={authState.user} logout={logout} /> : <Navigate to="/" />}/>
           </Routes>
         </div>
       </Router>

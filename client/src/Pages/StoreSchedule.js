@@ -30,7 +30,7 @@ const StoreSchedule = (props) => {
                 setSchedule({
 
                     scheduleArr: tempScheduleArray
-                })
+                });
             })
             .catch(err => { console.log(err) })
     }, [])
