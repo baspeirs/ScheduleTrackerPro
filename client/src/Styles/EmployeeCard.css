@@ -1,0 +1,12 @@
+.employeeCard {
+    background-color: green;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cardItem {
+    margin:2px;
+}

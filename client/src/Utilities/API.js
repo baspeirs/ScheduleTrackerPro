@@ -4,8 +4,8 @@ let APIData = {
     saveUser: function (userData) {
         return axios.post("/api/register", userData);
     },
-    getSchedule: function (schedule) {
-        return axios.get("/api/store_schedule", schedule);
+    getSchedule: function () {
+        return axios.get("/api/store_schedule");
     },
     isAuthorized: function () {
         return axios.get("/api/authorized")
@@ -15,6 +15,9 @@ let APIData = {
     },
     logout: function () {
         return axios.get("/api/logout");
+    },
+    getDirectory: function () {
+        return axios.get("/api/directory");
     }
 }
 

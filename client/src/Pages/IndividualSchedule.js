@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import API from "../Utilities/API";
-import IndividualDayCard from "../Components/IndividualDayCard";
+import IndividualDayContainer from "../Components/IndividualDayContainer"
 
 const IndividualSchedule = (props) => {
     const [schedule, setSchedule] = useState({
         scheduleArr: []
     });
+
+    
 
     class Day {
         constructor(date, shiftType, shift) {
@@ -18,8 +20,9 @@ const IndividualSchedule = (props) => {
     useEffect(() => {
         API.getSchedule()
             .then(res => {
+                console.log("api has been called")
                 let tempScheduleArray = []
-                for (let i=0; i<res.data.dates.values.length; i++) {
+                for (let i = 0; i < res.data.dates.values.length; i++) {
                     let shiftFound = false
 
                     res.data.managers.values[i].forEach(name => {
@@ -50,7 +53,6 @@ const IndividualSchedule = (props) => {
                     }
                 }
                 setSchedule({
-
                     scheduleArr: tempScheduleArray
                 });
             })
@@ -67,14 +69,11 @@ const IndividualSchedule = (props) => {
             <h2>
                 Hello Individual Schedule
             </h2>
-            {schedule.scheduleArr.map(dayOBJ => (
-                <IndividualDayCard 
-                    dayOBJ={dayOBJ}
-                />
-            ))}
+            <IndividualDayContainer 
+                schedule={schedule.scheduleArr}
+            />
             <button onClick={logMessage}>Debug Log</button>
             <button onClick={props.logout}>Log Out</button>
-            
         </div>
     )
 }

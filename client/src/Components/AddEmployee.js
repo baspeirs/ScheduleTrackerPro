@@ -8,7 +8,7 @@ const AddEmployee = () => {
         email: "",
         name: "",
         phoneNumber: "",
-        manager: true
+        manager: false
     })
 
     const handleInputChange = event => {
@@ -38,6 +38,21 @@ const AddEmployee = () => {
             })
     };
 
+    const handleCheck = e => {
+        const name = e.target.name;
+        if (e.target.checked) {
+            setUserState({
+                ...userState,
+                [name]: true
+            })
+        } else {
+            setUserState({
+                ...userState,
+                [name]: false
+            })
+        }
+    };
+
     return(
         <div>
             <h2>Add a new employee</h2>
@@ -60,8 +75,12 @@ const AddEmployee = () => {
                 </div>
                 <div className="form-group">
                 <label type="text" placeholder="Phone Number">Phone Number</label>
-                <input type="text" className="form-control" name="phone number" value={userState.phoneNumber} onChange={handleInputChange} />
+                <input type="text" className="form-control" name="phoneNumber" value={userState.phoneNumber} onChange={handleInputChange} />
                 </div>
+                <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="manager" onChange={handleCheck} />
+                                        <label class="form-check-label" for="defaultCheck1">Check box to give manager permissions</label>
+                                    </div>
                 <button onClick={handleSubmit}>Add Employee</button>
             </form>
         </div>

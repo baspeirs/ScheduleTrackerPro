@@ -7,6 +7,16 @@ const passport = require("passport");
 const db = require("./Models");
 var isAuthenticated = require("./config/middleware/isAuthendticated");
 
+// ADD SECONDARY QUERRY TO "ADD EMPLOYEE" ROUTE FOR GOOGLE SHEET DATA VALIDATION UPDATE
+    // SetDataValidationRequest 
+    // {
+    //     "range": {
+    //         object (GridRange)
+    //     },
+    //     "rule": {
+    //         object (DataValidationRule)
+    //     }
+    // }
 
 
 // ============= Google API for Google Sheets ==============
@@ -130,6 +140,14 @@ router.get("/api/user/:id", (req, res) => {
             res.json(result)
         })
         .catch(err => console.log(err))
+});
+
+router.get("/api/directory", (req, res) => {
+    console.log("called from back")
+    db.User.find()
+    .then(result => {
+        res.json(result)
+    })
 })
 
 
