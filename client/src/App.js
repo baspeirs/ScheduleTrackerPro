@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom"; // add Redirect, later
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import StoreSchedule from './Pages/StoreSchedule';
 import Home from "./Pages/Home";
 import "./Styles/App.css";
@@ -52,22 +52,6 @@ function App() {
       {authState.display ? (
         <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/storeSchedule">Store Schedule</Link>
-              </li>
-              <li>
-                <Link to="/individualSchedule">Individual Schedule</Link>
-              </li>
-              <li>
-                <Link to="/employeeOps">Employee Ops</Link>
-              </li>
-            </ul>
-          </nav>
 
           {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

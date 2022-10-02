@@ -22,7 +22,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(routes);
-
 // Connect to Database 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/scheduleStore");
 

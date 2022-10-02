@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../Utilities/API";
 import DayCard from "../Components/DayCard";
+import NavBar from "../Components/NavBar";
 
 const StoreSchedule = (props) => {
     const [schedule, setSchedule] = useState({
@@ -36,17 +37,20 @@ const StoreSchedule = (props) => {
     }, [])
 
     return (
-        <div className="container">
+        <div id="storeSchedule">
+            <NavBar logout={props.logout} />
+            <div className="container">
             <h2>
                 Hello Store Schedule
             </h2>
-            <button onClick={props.logout}>Log Out</button>
             {schedule.scheduleArr.map(obj => (
                 <DayCard 
                     dayOBJ={obj}
                 />
             ))}
         </div>
+        </div>
+        
     )
 }
 

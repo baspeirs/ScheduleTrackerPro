@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../Utilities/API";
-import IndividualDayContainer from "../Components/IndividualDayContainer"
+import IndividualDayContainer from "../Components/IndividualDayContainer";
+import NavBar from "../Components/NavBar";
 
 const IndividualSchedule = (props) => {
     const [schedule, setSchedule] = useState({
@@ -65,7 +66,9 @@ const IndividualSchedule = (props) => {
     }
 
     return (
-        <div className="container">
+        <div id="individualSchedule">
+            <NavBar logout={props.logout} />
+            <div className="container">
             <h2>
                 Hello Individual Schedule
             </h2>
@@ -73,7 +76,8 @@ const IndividualSchedule = (props) => {
                 schedule={schedule.scheduleArr}
             />
             <button onClick={logMessage}>Debug Log</button>
-            <button onClick={props.logout}>Log Out</button>
+            </div>
+            
         </div>
     )
 }

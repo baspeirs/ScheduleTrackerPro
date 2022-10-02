@@ -1,0 +1,120 @@
+#hero {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    max-height: 100vh;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    background: linear-gradient(26.82deg, rgba(24, 110, 129, 0.5) 7.1%, rgba(27, 152, 183, 0.5) 99.08%);
+    border-radius: 0px;
+}
+
+#log-inCard {
+    position: absolute;
+    width: 862px;
+    height: 576px;
+    left: 289px;
+    top: 219px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 43px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    padding-left: 3%;
+}
+
+#logo {
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
+
+#login-subHeader {
+    /* position: absolute; */
+    /* left: 24.24%;
+    right: 24.24%;
+    top: 35.06%;
+    bottom: 58.69%; */
+
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 64px;
+    /* identical to box height, or 160% */
+    color: #282C35;
+}
+
+.login-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin: auto;
+}
+
+.form-group {
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#username-text{
+    /* position: absolute; */
+    left: 24.38%;
+    right: 70.76%;
+    top: 51.17%;
+    bottom: 46.58%;
+    
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    
+    color: #1D2C61;
+}
+
+#username-input {
+    /* position: absolute; */
+left: 24.38%;
+right: 54.86%;
+top: 54.2%;
+bottom: 40.92%;
+
+background: #FFFFFF;
+}
+
+#password-text {
+    left: 49.31%;
+right: 46.11%;
+top: 51.17%;
+bottom: 46.58%;
+
+font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 23px;
+
+color: #1D2C61;
+}
+
+#password-input{
+    left: 49.31%;
+right: 29.93%;
+top: 54.2%;
+bottom: 40.92%;
+
+background: #FFFFFF;
+}
+
+#login-submit {
+    /* position: absolute; */
+width: 150px;
+height: 45px;
+left: 349px;
+top: 650px;
+
+background: linear-gradient(90deg, #31A5BE 0%, #5DDCFB 100%);
+box-shadow: 3.994px 20px 57px rgba(93, 220, 251, 0.1);
+border-radius: 10px;
+}
