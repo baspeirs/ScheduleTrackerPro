@@ -1,28 +1,73 @@
-.scheduleTable {
-    background-color: rgb(184, 184, 184);
-    text-align: center;
-    margin:auto
-}
-
 .dayCard {
-    background-color: rgb(0, 77, 65);
-    text-align: center;
-    /* display: flex; */
-    display: grid;
     margin: 15px;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-td, th {
-    border: 1px solid black;
     padding: 5px;
 }
 
-tr:nth-child(even) {
-    background-color: rgb(0, 255, 238);
-    color: black;
-  }
-tr:nth-child(odd) {
-    background-color: rgb(76, 76, 76);
-  }
+.shift-type {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #31A5BE;
+
+}
+
+.card-day {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 64px;
+    /* or 246% */
+    text-align: center;
+    color: #282C35;
+}
+
+.shift-manager {
+    border-left: solid #31A5BE 5px;
+    background: #E4F2F5;
+}
+
+.shift-driver {
+    border-left: solid #21A857 5px;
+    background: #E3F2E6;
+}
+
+.shift-inStore {
+    border-left: solid #3431BE 5px;
+    background: #E5E4F5;
+}
+
+.employee-shift-card {
+    border-radius: 5px;
+    margin: 15px;
+    padding: 10px 10px 10px 20px;
+}
+
+.shift {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: #282C35;
+}
+
+.name {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+
+    color: #282C35;
+}
+
+.shifts-holder-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

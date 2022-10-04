@@ -1,10 +1,45 @@
-import React from "react";
-import TableData from "./TableData";
+import React, { useState, useEffect } from "react";
+import EmployeeShiftCard from "./EmployeeShiftCard";
 import "../Styles/DayCard.css"
 
 
 const DayCard = (props) => {
+    const [schedule, setSchedule] = useState({
+        managers: [],
+        drivers: [],
+        inStores: []
+    });
 
+    class Shift {
+        constructor(name, shift) {
+            this.name = name
+            this.shift = shift
+        }
+    }
+
+    useEffect(() => {
+        let managersArr = [];
+        let driversArr = [];
+        let inStoresArr = [];
+        for (let i = 0; i < props.dayOBJ.managerShifts.length; i++) {
+            const shiftObj = new Shift(props.dayOBJ.managers[i], props.dayOBJ.managerShifts[i])
+            managersArr.push(shiftObj)
+        }
+        for (let i = 0; i < props.dayOBJ.driverShifts.length; i++) {
+            const shiftObj = new Shift(props.dayOBJ.drivers[i], props.dayOBJ.driverShifts[i])
+            driversArr.push(shiftObj)
+        }
+        for (let i = 0; i < props.dayOBJ.inStoreShifts.length; i++) {
+            const shiftObj = new Shift(props.dayOBJ.inStores[i], props.dayOBJ.inStoreShifts[i])
+            inStoresArr.push(shiftObj)
+        }
+
+        setSchedule({
+            managers: managersArr,
+            drivers: driversArr,
+            inStores: inStoresArr
+        })
+    }, [])
 
     // const logMessage = () => {
     //     console.log(props)
@@ -13,67 +48,35 @@ const DayCard = (props) => {
     return (
         <div className="dayCard">
             <div className="cardHeader">
-                <h2>{props.dayOBJ.date[0]} {props.dayOBJ.date[1]}</h2>
+                <h2 className="card-day">{props.dayOBJ.date[0]} {props.dayOBJ.date[1]}</h2>
+            </div>
+            <h3 className="shift-type">Managers</h3>
+            <div className="shifts-holder-card">
+                {schedule.managers.map(shift => (
+                    <EmployeeShiftCard
+                        shift={shift}
+                        classType="shift-manager employee-shift-card"
+                    />
+                ))}
             </div>
 
-            <div className="managerTable">
-            <h3>Managers</h3>
-                <table className="scheduleTable">
-                    <tr>
-                        {props.dayOBJ.managerShifts.map(shift => (
-                            <TableData
-                                data={shift}
-                            />
-                        ))}
-                    </tr>
-                    <tr>
-                        {props.dayOBJ.managers.map(employee => (
-                            <TableData
-                                data={employee}
-                            />
-                        ))}
-                    </tr>
-                </table>
+            <h3 className="shift-type">Drivers</h3>
+            <div className="shifts-holder-card">
+                {schedule.drivers.map(shift => (
+                    <EmployeeShiftCard
+                        shift={shift}
+                        classType="shift-driver employee-shift-card"
+                    />
+                ))}
             </div>
-
-            <div className="driverTable">
-            <h3>Drivers</h3>
-                <table className="scheduleTable">
-                    <tr>
-                        {props.dayOBJ.driverShifts.map(shift => (
-                            <TableData
-                                data={shift}
-                            />
-                        ))}
-                    </tr>
-                    <tr>
-                        {props.dayOBJ.drivers.map(employee => (
-                            <TableData
-                                data={employee}
-                            />
-                        ))}
-                    </tr>
-                </table>
-            </div>
-
-            <div className="inStoreTable">
-            <h3>In Store</h3>
-                <table className="scheduleTable">
-                    <tr>
-                        {props.dayOBJ.inStoreShifts.map(shift => (
-                            <TableData
-                                data={shift}
-                            />
-                        ))}
-                    </tr>
-                    <tr>
-                        {props.dayOBJ.inStores.map(employee => (
-                            <TableData
-                                data={employee}
-                            />
-                        ))}
-                    </tr>
-                </table>
+            <h3 className="shift-type">In Shops</h3>
+            <div className="shifts-holder-card">
+                {schedule.inStores.map(shift => (
+                    <EmployeeShiftCard
+                        shift={shift}
+                        classType="shift-inStore employee-shift-card"
+                    />
+                ))}
             </div>
         </div>
     )

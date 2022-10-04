@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../Utilities/API";
 import DayCard from "../Components/DayCard";
 import NavBar from "../Components/NavBar";
+import "../Styles/StoreSchedule.css"
 
 const StoreSchedule = (props) => {
     const [schedule, setSchedule] = useState({
@@ -40,9 +41,6 @@ const StoreSchedule = (props) => {
         <div id="storeSchedule">
             <NavBar logout={props.logout} />
             <div className="container">
-            <h2>
-                Hello Store Schedule
-            </h2>
             {schedule.scheduleArr.map(obj => (
                 <DayCard 
                     dayOBJ={obj}
