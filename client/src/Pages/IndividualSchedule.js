@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../Utilities/API";
 import IndividualDayContainer from "../Components/IndividualDayContainer";
 import NavBar from "../Components/NavBar";
+import "../Styles/IndividualSchedule.css"
 
 const IndividualSchedule = (props) => {
     const [schedule, setSchedule] = useState({
@@ -49,7 +50,7 @@ const IndividualSchedule = (props) => {
                     });
 
                     if (!shiftFound) {
-                        const dayOBJ = new Day(res.data.dates.values[i], "Day Off", null)
+                        const dayOBJ = new Day(res.data.dates.values[i], null, "Day Off")
                         tempScheduleArray.push(dayOBJ)
                     }
                 }
@@ -60,22 +61,15 @@ const IndividualSchedule = (props) => {
             .catch(err => { console.log(err) })
     }, [])
 
-    const logMessage = (e) => {
-        e.preventDefault()
-        console.log(schedule)
-    }
-
     return (
         <div id="individualSchedule">
             <NavBar logout={props.logout} />
             <div className="container">
-            <h2>
-                Hello Individual Schedule
-            </h2>
+            <h2 id="individual-schedule-header">View your schedule</h2>
+            <h4 id="individual-schedule-subheader">select date</h4>
             <IndividualDayContainer 
                 schedule={schedule.scheduleArr}
             />
-            <button onClick={logMessage}>Debug Log</button>
             </div>
             
         </div>

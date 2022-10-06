@@ -1,16 +1,18 @@
 import React from "react";
-import "../Styles/DayCard.css"
+import "../Styles/IndividualSchedule.css";
 
 
 const IndividualDayCard = (props) => {
 
     return (
-        <div className="dayCard">
-            <h3>{props.dayObj.date[0]}</h3>
-            <h3>{props.dayObj.date[1]}</h3>
-            <p>{props.dayObj.shiftType}</p>
-            <p>{props.dayObj.shift}</p>
+        <div>
+            <p className="individual-shift-type">{props.dayObj.shiftType}</p>
+            <div className={props.classType}>
+                <p className="shift-date">{props.dayObj.date[0]} {props.dayObj.date[1]}</p>
+                <h3 className="shift-time">{props.dayObj.shift}</h3>
+            </div>
         </div>
+
     )
 }
 

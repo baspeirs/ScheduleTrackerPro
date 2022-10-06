@@ -1,0 +1,23 @@
+.react-date-picker {
+    width: 100%;
+}
+
+.react-date-picker span {
+    color: #31A5BE;
+    margin: 10px;
+    font-weight: 500;
+}
+
+.react-date-picker input {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.react-date-picker__wrapper {
+    border: 1px solid #EBEBEB;
+    border-radius: 15px;
+    padding: 2px;
+}
