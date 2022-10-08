@@ -30,7 +30,6 @@ const AddEmployee = () => {
         })
             .then(result => {
                 console.log(result)
-                alert("Employee successfully added!");
                 window.location.reload();
             })
             .catch(err => {
@@ -53,36 +52,40 @@ const AddEmployee = () => {
         }
     };
 
-    return(
+    return (
         <div>
-            <h2>Add a new employee</h2>
-            <form>
+            <form id="new-employee-form">
             <div className="form-group">
-                <label type="text" placeholder="Email">Email</label>
-                <input type="text" className="form-control" name="email" value={userState.email} onChange={handleInputChange} />
+                    <label type="text" placeholder="Name (first and last)">First and Last Name</label>
+                    <input type="text" className="form-control" name="name" value={userState.name} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                <label type="text" placeholder="Username">Username</label>
-                <input type="text" className="form-control" name="username" value={userState.username} onChange={handleInputChange} />
+                    <label type="text" placeholder="Email">Email</label>
+                    <input type="text" className="form-control" name="email" value={userState.email} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                <label type="password" placeholder="Password">Password</label>
-                <input type="password" className="form-control" name="password" value={userState.password} onChange={handleInputChange} />
+                    <label type="text" placeholder="Username">Username</label>
+                    <input type="text" className="form-control" name="username" value={userState.username} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                <label type="text" placeholder="Name (first and last)">Name (first and last)</label>
-                <input type="text" className="form-control" name="name" value={userState.name} onChange={handleInputChange} />
+                    <label type="password" placeholder="Password">Password</label>
+                    <input type="password" className="form-control" name="password" value={userState.password} onChange={handleInputChange} />
                 </div>
+                
                 <div className="form-group">
-                <label type="text" placeholder="Phone Number">Phone Number</label>
-                <input type="text" className="form-control" name="phoneNumber" value={userState.phoneNumber} onChange={handleInputChange} />
+                    <label type="text" placeholder="Phone Number">Phone Number</label>
+                    <input type="text" className="form-control" name="phoneNumber" value={userState.phoneNumber} onChange={handleInputChange} />
                 </div>
-                <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="manager" onChange={handleCheck} />
-                                        <label class="form-check-label" for="defaultCheck1">Check box to give manager permissions</label>
-                                    </div>
-                <button onClick={handleSubmit}>Add Employee</button>
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="manager" onChange={handleCheck} />
+                    <label class="form-check-label" for="defaultCheck1">Is employee a Manager?</label>
+                </div>
+                
             </form>
+            <div className="form-button-group">
+                    <button type="button" class="STP-Button close-modal-btn" data-bs-dismiss="modal">Close</button>
+                    <button id="add-employee-modal-btn" className="STP-Button" onClick={handleSubmit}>+ Add Employee</button>
+                </div>
         </div>
     )
 }

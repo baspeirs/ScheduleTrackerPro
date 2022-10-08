@@ -1,9 +1,26 @@
 .App {
-    /* background-color: #282c34; */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
+  /* background-color: #282c34; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.STP-Button {
+  box-shadow: 3.994px 20px 57px rgba(93, 220, 251, 0.1);
+  border-radius: 10px;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 5px 35px 5px 35px;
+  text-align: center;
+}
+
+.close-modal-btn {
+  background-color: #5C77B5;
+  color: #E4F2F5;
+}

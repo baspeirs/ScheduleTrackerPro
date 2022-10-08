@@ -1,14 +1,14 @@
 import React from "react";
-import "../Styles/EmployeeCard.css"
+import "../Styles/EmployeeCard.css";
 
 const EmployeeCard = (props) => {
 
     return (
         <div className="employeeCard">
-            <p className="cardItem">{props.name} | </p>
-            <p className="cardItem">{props.userName} | </p>
-            <p className="cardItem">{props.email} | </p>
-            <p className="cardItem">{props.phoneNumber} | </p>
+            <h4 className="cardItem">{props.name}</h4>
+            <p className="cardItem">User Name: {props.userName}</p>
+            <p className="cardItem">Email: {props.email}</p>
+            <p className="cardItem">Phone Number: {props.phoneNumber}</p>
         </div>
     )
 }

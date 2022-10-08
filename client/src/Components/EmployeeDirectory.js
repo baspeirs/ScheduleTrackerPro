@@ -26,7 +26,6 @@ const EmployeeDirectory = (props) => {
 
     return (
         <div id="employeeDirectory">
-            <h2>Le Directory</h2>
             {directoryState.employeeList.map(employee => (
                 <EmployeeCard
                     name={employee.name}

@@ -2,3 +2,85 @@
     display: flex;
     flex-direction: row;
 }
+
+#EmployeeDirectory-header {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 64px;
+    /* or 246% */
+
+    text-align: center;
+
+    color: #282C35;
+}
+
+#employeeDirectory {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.modalBtn {
+    background-color: #31A5BE;
+    color: #E4F2F5;
+}
+
+#AddEmployeeModal {
+    color: #282C35;
+}
+
+#new-employee-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#add-employee-modal-btn {
+    background: linear-gradient(90deg, #31A5BE 0%, #5DDCFB 100%);
+    color: #E4F2F5;
+}
+
+.form-group {
+    margin: 15px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+border: 1px solid #31A5BE;
+box-shadow: 3.994px 20px 57px rgba(93, 220, 251, 0.1);
+border-radius: 4px;
+cursor: pointer;
+margin: 5px;
+height: 25px;
+width: 24px;
+}
+
+.form-check-input:checked {
+    background-color: #31A5BE;
+    border: 1px solid #31A5BE;
+    box-shadow: 3.994px 20px 57px rgba(93, 220, 251, 0.1);
+}
+
+.modalHeader {
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 700;
+font-size: 26px;
+line-height: 64px;
+text-align: center;
+}
+
+.form-button-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+#add-employee-button {
+    background: linear-gradient(90deg, #31A5BE 0%, #5DDCFB 100%);
+    color: #E4F2F5;
+}

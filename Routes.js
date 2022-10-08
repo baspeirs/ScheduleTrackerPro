@@ -110,7 +110,7 @@ router.post("/api/register", (req, res) => {
                 })
         }
     )
-        .then()
+        // .then()
 });
 
 // user login route (use a post request for log in)
