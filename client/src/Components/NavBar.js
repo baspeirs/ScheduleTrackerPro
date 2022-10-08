@@ -7,10 +7,17 @@ export default function NavBar(props) {
     <div className="navBar">
       <img src={require("../Images/ScheduleTrackerPro.png")} id="logo-nav" alt="logo" />
       <div id="nav-button-holder">
-        <button className='nav-item'><Link to="/storeSchedule">Store Schedule</Link></button>
-        <button className='nav-item'><Link to="/individualSchedule">Individual Schedule</Link></button>
-        <button className='nav-item'><Link to="/employeeOps">Employee Ops</Link></button>
-        <button className='nav-item' onClick={props.logout}>Log Out</button>
+
+        <Link to="/storeSchedule"><div className='nav-item'><p>Store Schedule</p></div></Link>
+
+
+        <Link to="/individualSchedule"><div className='nav-item'><p>Individual Schedule</p></div></Link>
+
+        <Link to="/employeeOps"><div className='nav-item'><p>Employee Ops</p></div></Link>
+
+        <div className='nav-item'>
+          <p onClick={props.logout}>Log Out</p>
+        </div>
       </div>
     </div>
     // class to add forselected page: className="is-active"

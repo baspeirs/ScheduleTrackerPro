@@ -20,25 +20,24 @@
 #nav-button-holder {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .nav-item {
-    /* text-align: right; */
-    flex: 1;
-    margin: auto;
+    text-align: center;
     color: black;
-    padding: 14px 25px;
-    display: inline-block;
     font-family: 'Jost';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 23px;
+
     border: none;
     color: #31A5BE;
     height: 100%;
     background-color: #FFFFFF;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px 25px;
 }
 
 a {
@@ -52,4 +51,6 @@ a:hover {
 .nav-item:hover {
     background-color: #31A5BE;
     color: #FFFFFF;
+    cursor: pointer;
+
 }
