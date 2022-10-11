@@ -7,7 +7,7 @@ const EmployeeOps = (props) => {
 
     return (
         <div id="employeeOps">
-            <NavBar logout={props.logout} />
+            <NavBar user={props.user} logout={props.logout} />
             <NewEmployeeModal />
             <h1 id="EmployeeDirectory-header">EmployeeDirectory</h1>
 

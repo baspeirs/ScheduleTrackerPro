@@ -12,8 +12,11 @@ export default function NavBar(props) {
 
 
         <Link to="/individualSchedule"><div className='nav-item'><p>Individual Schedule</p></div></Link>
-
-        <Link to="/employeeOps"><div className='nav-item'><p>Employee Ops</p></div></Link>
+        {props.user.manager 
+        ? <Link to="/employeeOps"><div className='nav-item'><p>Employee Ops</p></div></Link>
+        : <div></div>
+        }
+        
 
         <div className='nav-item'>
           <p onClick={props.logout}>Log Out</p>

@@ -63,7 +63,7 @@ const IndividualSchedule = (props) => {
 
     return (
         <div id="individualSchedule">
-            <NavBar logout={props.logout} />
+            <NavBar user={props.user} logout={props.logout} />
             <div className="container">
             <h2 id="individual-schedule-header">View your schedule</h2>
             <h4 id="individual-schedule-subheader">select date</h4>

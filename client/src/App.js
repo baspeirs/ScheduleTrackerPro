@@ -57,9 +57,15 @@ function App() {
             renders the first one that matches the current URL. */}
           <Routes>
             <Route path="/" element={authState.authorized ? <Navigate to="/storeSchedule" /> : <Home isAuthorized={isAuthorized}/>} />
-            <Route path="/storeSchedule" element={authState.authorized ? <StoreSchedule user={authState.user} logout={logout} /> : <Navigate to="/" />}/>
-            <Route path="/individualSchedule" element={authState.authorized ? <IndividualSchedule user={authState.user} logout={logout} /> : <Navigate to="/" />}/>
-            <Route path="/employeeOps" element={authState.authorized ? <EmployeeOps user={authState.user} logout={logout} /> : <Navigate to="/" />}/>
+            <Route path="/storeSchedule" element={authState.authorized ? <StoreSchedule user={authState.user} logout={logout} /> : <Navigate to="/" />} errorElement={<Navigate to="/" />} />
+            <Route path="/individualSchedule" element={authState.authorized ? <IndividualSchedule user={authState.user} logout={logout} /> : <Navigate to="/" />} errorElement={<Navigate to="/" />} />
+            <Route path="/employeeOps" element={
+                authState.user.manager 
+                ? <EmployeeOps user={authState.user} logout={logout} /> 
+                : <Navigate to="/storeSchedule" />
+              }
+              errorElement={<Navigate to="/" />}
+              />
           </Routes>
         </div>
       </Router>
