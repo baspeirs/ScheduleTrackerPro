@@ -18,6 +18,15 @@ let APIData = {
     },
     getDirectory: function () {
         return axios.get("/api/directory");
+    },
+    getUser: function (id) {
+        return axios.get("/api/user/" + id)
+    },
+    updateUser: function (id, update) {
+        return axios.put("api/updateUser/" + id, update)
+    },
+    deleteUser: function (id) {
+        return axios.delete("api/deleteUser/" + id)
     }
 }
 

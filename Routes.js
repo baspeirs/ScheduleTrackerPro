@@ -90,13 +90,14 @@ router.get("/api/store_schedule", async (req, res) => {
 // ============= User Routes For Database ==================
 router.post("/api/register", (req, res) => {
     console.log("registering user.");
+    console.log(req.body);
     db.User.register(
         new db.User({
             username: req.body.username,
             email: req.body.email,
             created: req.body.created,
             name: req.body.name,
-            phoneNumber: req.body.number,
+            phoneNumber: req.body.phoneNumber,
             manager: req.body.manager
         }),
         req.body.password,
@@ -107,10 +108,12 @@ router.post("/api/register", (req, res) => {
             passport.authenticate("local", { session: false })
                 (req, res, function (data) {
                     res.json(req.user);
+                    console.log(req.user);
+                    console.log(res.body);
                 })
         }
     )
-        // .then()
+        // .then(console.log(res))
 });
 
 // user login route (use a post request for log in)
@@ -149,7 +152,39 @@ router.get("/api/directory", (req, res) => {
         .then(result => {
             res.json(result)
         })
-})
+});
+
+router.put("/api/updateUser/:id", (req, res) => {
+    db.User.findOneAndUpdate(
+        // find by id
+        { _id: req.params.id },
+        // values to update
+        {
+            username: req.body.username,
+            email: req.body.email,
+            name: req.body.name,
+            phoneNumber: req.body.phoneNumber,
+            manager: req.body.manager
+        },
+        // setting 'new' === to 'true' so we can return the document after update is applied
+        // { new: true }
+        )
+    .then(result => {
+        res.json(result)
+      console.log("Router.put log: ")
+      console.log(result)
+    })
+    .catch(err => console.error(err))
+});
+
+router.delete("/api/deleteUser/:id", (req, res) => {
+    db.User.deleteOne({_id: req.params.id})
+    .then(result => {
+        console.log(result)
+        res.json(result)
+    })
+    .catch(err => console.error(err))
+});
 
 
 module.exports = router;

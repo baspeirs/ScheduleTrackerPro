@@ -2,14 +2,6 @@ import React, { useEffect, useState } from "react";
 import API from "../Utilities/API";
 import EmployeeCard from "./EmployeeCard";
 
-//,
-// username: "",
-// password: "",
-// email: "",
-// name: "",
-// phoneNumber: "",
-// manager: true
-
 const EmployeeDirectory = (props) => {
     const [directoryState, setDirectoryState] = useState({
         employeeList: []
@@ -18,7 +10,6 @@ const EmployeeDirectory = (props) => {
     useEffect(() => {
         API.getDirectory()
         .then(data => {
-            console.log(data)
             setDirectoryState({employeeList: data.data})
         })
         .catch(err => {console.error(err)})
@@ -28,10 +19,15 @@ const EmployeeDirectory = (props) => {
         <div id="employeeDirectory">
             {directoryState.employeeList.map(employee => (
                 <EmployeeCard
+                    user={props.user}
+                    id={employee._id}
                     name={employee.name}
-                    userName={employee.username}
+                    username={employee.username}
                     email={employee.email}
-                    phoneNumber={employee.phonenumber}
+                    phoneNumber={employee.phoneNumber}
+                    manager={employee.manager}
+                    modleID={employee.username}
+                    modleTarget={"#" + employee.username}
                 />
             ))}
         </div>

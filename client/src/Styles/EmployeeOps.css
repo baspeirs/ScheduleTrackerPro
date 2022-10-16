@@ -84,3 +84,12 @@ text-align: center;
     background: linear-gradient(90deg, #31A5BE 0%, #5DDCFB 100%);
     color: #E4F2F5;
 }
+
+.delete-form {
+    text-align: center;
+}
+
+#delete-employee-modal-btn {
+    background-color: rgb(255, 74, 74);
+    color: #E4F2F5;
+}

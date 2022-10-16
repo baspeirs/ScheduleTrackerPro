@@ -10,3 +10,34 @@
 .cardItem {
     margin:2px;
 }
+
+.employee-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit-employee {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 25px;
+}
+
+.employee-card-action {
+    width: 35px;
+    /* margin-left: 10px; */
+    padding: 5px;
+}
+
+.employee-card-action:hover {
+    cursor: pointer;
+}
+
+.icon-trash:hover {
+    stroke: rgb(255, 74, 74);
+}
+
+.icon-edit:hover {
+    stroke: #31A5BE;
+}

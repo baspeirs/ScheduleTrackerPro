@@ -9,11 +9,11 @@ const EmployeeOps = (props) => {
         <div id="employeeOps">
             <NavBar user={props.user} logout={props.logout} />
             <NewEmployeeModal />
-            <h1 id="EmployeeDirectory-header">EmployeeDirectory</h1>
+            <h1 id="EmployeeDirectory-header">Employee Directory</h1>
 
             <div className="content container">
                 <EmployeeDirectory
-
+                    user={props.user}
                 />
             </div>
         </div>
