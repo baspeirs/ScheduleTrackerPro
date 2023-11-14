@@ -41,10 +41,6 @@ const DayCard = (props) => {
         })
     }, [])
 
-    // const logMessage = () => {
-    //     console.log(props)
-    // }
-
     return (
         <div className="dayCard">
             <div className="cardHeader">
@@ -52,8 +48,9 @@ const DayCard = (props) => {
             </div>
             <h3 className="shift-type">Managers</h3>
             <div className="shifts-holder-card">
-                {schedule.managers.map(shift => (
+                {schedule.managers.map((shift, index) => (
                     <EmployeeShiftCard
+                        key={`manager${index}`}
                         shift={shift}
                         classType="shift-manager employee-shift-card"
                     />
@@ -62,8 +59,9 @@ const DayCard = (props) => {
 
             <h3 className="shift-type">Drivers</h3>
             <div className="shifts-holder-card">
-                {schedule.drivers.map(shift => (
+                {schedule.drivers.map((shift, index) => (
                     <EmployeeShiftCard
+                        key={`driver${index}`}
                         shift={shift}
                         classType="shift-driver employee-shift-card"
                     />
@@ -71,8 +69,9 @@ const DayCard = (props) => {
             </div>
             <h3 className="shift-type">In Shops</h3>
             <div className="shifts-holder-card">
-                {schedule.inStores.map(shift => (
+                {schedule.inStores.map((shift, index) => (
                     <EmployeeShiftCard
+                        key={`inStore${index}`}
                         shift={shift}
                         classType="shift-inStore employee-shift-card"
                     />

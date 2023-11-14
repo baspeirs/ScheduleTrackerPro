@@ -89,8 +89,7 @@ router.get("/api/store_schedule", async (req, res) => {
 
 // ============= User Routes For Database ==================
 router.post("/api/register", (req, res) => {
-    console.log("registering user.");
-    console.log(req.body);
+    console.log(`Registering user: ${req.body.name}`);
     db.User.register(
         new db.User({
             username: req.body.username,
@@ -108,12 +107,9 @@ router.post("/api/register", (req, res) => {
             passport.authenticate("local", { session: false })
                 (req, res, function (data) {
                     res.json(req.user);
-                    console.log(req.user);
-                    console.log(res.body);
                 })
         }
     )
-        // .then(console.log(res))
 });
 
 // user login route (use a post request for log in)
@@ -171,8 +167,6 @@ router.put("/api/updateUser/:id", (req, res) => {
         )
     .then(result => {
         res.json(result)
-      console.log("Router.put log: ")
-      console.log(result)
     })
     .catch(err => console.error(err))
 });
@@ -180,7 +174,6 @@ router.put("/api/updateUser/:id", (req, res) => {
 router.delete("/api/deleteUser/:id", (req, res) => {
     db.User.deleteOne({_id: req.params.id})
     .then(result => {
-        console.log(result)
         res.json(result)
     })
     .catch(err => console.error(err))

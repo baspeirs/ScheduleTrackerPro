@@ -44,7 +44,6 @@ const IndividualDayContainer = (props) => {
             }
         })
         if(!foundMatch) {
-            console.log("does not match")
             updateDate({
                 selectedDate: new Date(date.selectedDate),
                 selectedDateObj: {

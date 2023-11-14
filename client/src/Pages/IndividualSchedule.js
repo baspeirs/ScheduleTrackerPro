@@ -22,7 +22,6 @@ const IndividualSchedule = (props) => {
     useEffect(() => {
         API.getSchedule()
             .then(res => {
-                console.log("api has been called")
                 let tempScheduleArray = []
                 for (let i = 0; i < res.data.dates.values.length; i++) {
                     let shiftFound = false

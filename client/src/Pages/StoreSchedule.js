@@ -29,7 +29,6 @@ const StoreSchedule = (props) => {
                     const dayOBJ = new Day (res.data.dates.values[i], res.data.managerShifts.values[0],res.data.managers.values[i], res.data.driverShifts.values[0],res.data.drivers.values[i], res.data.inStoreShifts.values[0],res.data.inStore.values[i])
                     tempScheduleArray.push(dayOBJ)
                 }
-                console.log(tempScheduleArray)
                 setSchedule({
 
                     scheduleArr: tempScheduleArray
@@ -42,8 +41,9 @@ const StoreSchedule = (props) => {
         <div id="storeSchedule">
             <NavBar user={props.user} logout={props.logout} />
             <div className="container">
-            {schedule.scheduleArr.map(obj => (
+            {schedule.scheduleArr.map((obj, index) => (
                 <DayCard 
+                    key={`dayCard${index}`}
                     dayOBJ={obj}
                 />
             ))}

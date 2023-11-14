@@ -41,7 +41,6 @@ function App() {
     e.preventDefault();
     API.logout()
       .then(res => {
-        console.log(res.data.message)
         isAuthorized()
       })
       .catch(err => console.log(err));
