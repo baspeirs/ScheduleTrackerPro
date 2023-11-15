@@ -9,8 +9,6 @@ const IndividualSchedule = (props) => {
         scheduleArr: []
     });
 
-    
-
     class Day {
         constructor(date, shiftType, shift) {
             this.date = date;
@@ -19,40 +17,55 @@ const IndividualSchedule = (props) => {
         }
     }
 
+    const scheduleMapper = (date, shiftArray, employeeArray) => {
+        return  employeeArray.map((employee, index) => {
+            return {
+                employee,
+                date,
+                shift: shiftArray[0][index]
+            } 
+        });
+    };
+
     useEffect(() => {
         API.getSchedule()
             .then(res => {
+                console.log("response data from google sheets api call");
+                console.log(res.data)
                 let tempScheduleArray = []
-                for (let i = 0; i < res.data.dates.values.length; i++) {
-                    let shiftFound = false
-
-                    res.data.managers.values[i].forEach(name => {
-                        if (name === props.user.name) {
-                            const dayOBJ = new Day(res.data.dates.values[i], "Manager", res.data.managerShifts.values[0][i]);
-                            tempScheduleArray.push(dayOBJ);
+                res.data.dates.values.forEach((date, index) => {
+                    let shiftFound = false;
+                    const managerSchedule = scheduleMapper(date, res.data.managerShifts.values, res.data.managers.values[index]);
+                    managerSchedule.forEach(manager => {
+                        if (manager.employee === props.user.name) {
+                            const managerShift = new Day(manager.date, "Manager", manager.shift);
+                            tempScheduleArray.push(managerShift);
                             shiftFound = true;
                         }
                     });
-                    res.data.drivers.values[i].forEach(name => {
-                        if (name === props.user.name) {
-                            const dayOBJ = new Day(res.data.dates.values[i], "Driver", res.data.driverShifts.values[0][i]);
-                            tempScheduleArray.push(dayOBJ);
+                    const driverSchedule = scheduleMapper(date, res.data.driverShifts.values, res.data.drivers.values[index]);
+                    driverSchedule.forEach(driver => {
+                        if (driver.employee === props.user.name) {
+                            const driverShift = new Day(driver.date, "Driver", driver.shift);
+                            tempScheduleArray.push(driverShift);
                             shiftFound = true;
                         }
                     });
-                    res.data.inStore.values[i].forEach(name => {
-                        if (name === props.user.name) {
-                            const dayOBJ = new Day(res.data.dates.values[i], "In Store", res.data.inStoreShifts.values[0][i]);
-                            tempScheduleArray.push(dayOBJ);
+                    const inStoreSchedule = scheduleMapper(date, res.data.inStoreShifts.values, res.data.inStore.values[index]);
+                    inStoreSchedule.forEach(inStore => {
+                        if (inStore.employee === props.user.name) {
+                            const inStoreShift = new Day(inStore.date, "In Store", inStore.shift);
+                            tempScheduleArray.push(inStoreShift);
                             shiftFound = true;
                         }
                     });
 
                     if (!shiftFound) {
-                        const dayOBJ = new Day(res.data.dates.values[i], null, "Day Off")
-                        tempScheduleArray.push(dayOBJ)
-                    }
-                }
+                                const dayOBJ = new Day(res.data.dates.values[index], null, "Day Off")
+                                tempScheduleArray.push(dayOBJ)
+                            }
+                });
+                
                 setSchedule({
                     scheduleArr: tempScheduleArray
                 });
