@@ -47,8 +47,7 @@ const Home = (props) => {
     return (
         <div>
             <div id="log-inCard">
-                <img src={require("../Images/ScheduleTrackerPro.png")} id="logo" alt="logo"/>
-                {/* <h1 id="logo">Schedule Tracker Pro</h1> */}
+                <img src={require("../Images/ScheduleTrackerPro.png")} id="logo" alt="logo" />
                 <h2 id="login-subHeader">Streamline your schedule.</h2>
                 <form>
                     <div className="login-inputs">
@@ -61,15 +60,14 @@ const Home = (props) => {
                             <input id="password-input" type="password" className="form-control" name="password" value={userState.password} onChange={handleInputChange} />
                         </div>
                     </div>
-
                     <button id="login-submit" type="submit" onClick={login}>Login</button>
                 </form>
+                <div id="demo">
+                    <p>This is a demo page, feel free to log in and test the functionality!</p>
+                    <p>username: sample | password: sampleuser</p>
+                </div>
             </div>
-
             <img src={require("../Images/BGColor.png")} id="hero" alt="hero" />
-
-
-
         </div>
     )
 }

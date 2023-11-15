@@ -28,18 +28,11 @@
 }
 
 #login-subHeader {
-    /* position: absolute; */
-    /* left: 24.24%;
-    right: 24.24%;
-    top: 35.06%;
-    bottom: 58.69%; */
-
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
     line-height: 64px;
-    /* identical to box height, or 160% */
     color: #282C35;
 }
 
@@ -57,64 +50,75 @@
     margin-bottom: 5%;
 }
 
-#username-text{
-    /* position: absolute; */
+#username-text {
     left: 24.38%;
     right: 70.76%;
     top: 51.17%;
     bottom: 46.58%;
-    
+
     font-family: 'Jost';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 23px;
-    
+
     color: #1D2C61;
 }
 
 #username-input {
-    /* position: absolute; */
-left: 24.38%;
-right: 54.86%;
-top: 54.2%;
-bottom: 40.92%;
+    left: 24.38%;
+    right: 54.86%;
+    top: 54.2%;
+    bottom: 40.92%;
 
-background: #FFFFFF;
+    background: #FFFFFF;
 }
 
 #password-text {
     left: 49.31%;
-right: 46.11%;
-top: 51.17%;
-bottom: 46.58%;
+    right: 46.11%;
+    top: 51.17%;
+    bottom: 46.58%;
 
-font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 23px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
 
-color: #1D2C61;
+    color: #1D2C61;
 }
 
-#password-input{
+#password-input {
     left: 49.31%;
-right: 29.93%;
-top: 54.2%;
-bottom: 40.92%;
+    right: 29.93%;
+    top: 54.2%;
+    bottom: 40.92%;
 
-background: #FFFFFF;
+    background: #FFFFFF;
 }
 
 #login-submit {
-    /* position: absolute; */
-width: 150px;
-height: 45px;
-left: 349px;
-top: 650px;
+    width: 150px;
+    height: 45px;
+    left: 349px;
+    top: 650px;
 
-background: linear-gradient(90deg, #31A5BE 0%, #5DDCFB 100%);
-box-shadow: 3.994px 20px 57px rgba(93, 220, 251, 0.1);
-border-radius: 10px;
+    background: linear-gradient(90deg, #31A5BE 0%, #5DDCFB 100%);
+    box-shadow: 3.994px 20px 57px rgba(93, 220, 251, 0.1);
+    border-radius: 10px;
+}
+
+#demo {
+    height: 41%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Jost';
+    font-style: normal;
+}
+
+p {
+    margin-bottom: 0;
 }
